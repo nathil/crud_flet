@@ -3,8 +3,8 @@
     Nesta versão criamos a tela atualizar e a inserimos no dicionário de telas do arquivo
     controle. Na tela atualizar, criamos a função init para inicializar a variável global
     usuario, bem como os campos de texto nome e telefone. Essa função init é chamada
-    quando o se clica no IconButton atualizar da tabela. Ainda no artuivo da tela
-    aqualizar, nós criamos a função atualizar. Ela é chamada quando se clica no botão
+    quando o se clica no IconButton atualizar da tabela. Ainda na tela
+    atualizar, nós criamos a função atualizar. Ela é chamada quando se clica no botão
     atualizar da tela. No momento ela não faz nada!
 """
 import flet as ft
