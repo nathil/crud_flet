@@ -91,3 +91,5 @@ def atualizar(e):
     usuario = e.control.key    
     con.tela_atualizar.init(usuario)
     con.page.go('3')
+
+#fazer a mesma coisa da tarefa da pesquisa, refinar mais e aumentar o formulario 

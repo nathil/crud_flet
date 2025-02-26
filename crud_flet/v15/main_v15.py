@@ -25,6 +25,7 @@ def main(page: ft.Page):
     page.theme_mode  = "light"
     page.go('1')
 
+#tarefa: melhorar a busca pra ser case sensitive e usar regex para remover os acentos 
 
 ft.app(target=main)
 

@@ -31,7 +31,7 @@ def atualizar_tabela():
 
 banco_de_dados = []
 
-def cadastrar(componentes): 
+def cadastrar(e): 
     usuario = {
         'nome' : componentes['tf_nome'].current.value,
         'telefone' : componentes['tf_telefone'].current.value,

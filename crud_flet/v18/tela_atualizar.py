@@ -8,6 +8,7 @@ componentes = {
         #add todos os compontens da tela aqui
     }
 
+
 def view():     
     return ft.View(
                 "tela3",

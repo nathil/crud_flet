@@ -21,8 +21,8 @@ def controle_de_rota(route_event):
 def barra_navegacao():
     return ft.NavigationBar(
                         destinations=[
-                            ft.NavigationDestination(icon=ft.icons.SAVE, label="Cadastrar"),
-                            ft.NavigationDestination(icon=ft.icons.SEARCH, label="Listar"),                            
+                            ft.NavigationBarDestination(icon=ft.icons.SAVE, label="Cadastrar"),
+                            ft.NavigationBarDestination(icon=ft.icons.SEARCH, label="Listar"),                            
                         ],
                         on_change= navegacao 
             )#NavigationBar
