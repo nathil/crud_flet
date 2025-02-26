@@ -1,5 +1,6 @@
 import flet as ft
 import controle as con
+import re
 
 componentes = {        
         'tabela': ft.Ref[ft.DataTable](),   
@@ -11,7 +12,7 @@ def view():
     return ft.View(
                 "tela2",
                 [             
-                    ft.TextField(ref=componentes['tf_pesquisa'], label='pesquisar', icon='search',
+                    ft.TextField(ref=componentes['tf_pesquisa'], label='Pesquisar', icon='search',
                                  on_change=pesquisar),              
                     ft.DataTable(
                             width=float('inf'),
@@ -44,12 +45,30 @@ def preencher_linha_tabela(cadastro):
                 ft.DataCell(ft.Text(cadastro['telefone']))                                                           
         ]
 
+def remover_acentos(txt: str) -> str:
+    txt = re.sub("[âãáà]", "a", txt) 
+    txt = re.sub("[êéè]", "e", txt)  
+    txt = re.sub("[îíì]", "i", txt) 
+    txt = re.sub("[ôõóò]", "o", txt) 
+    txt = re.sub("[ûúù]", "u", txt) 
+    return txt 
+
+def validar_filtro(query, cadastro):
+    tem_letra = bool(re.search('[a-zA-Z]', query))
+    if tem_letra:
+        query_min = query.lower() 
+        query_min = remover_acentos(query_min) #removendo todas as vogais acentuadas 
+        if query_min in remover_acentos(cadastro['nome'].lower()):
+            return True
+    return query in cadastro['telefone']
+
 
 def filtrar_dados(query):
     return [
             ft.DataRow(cells=preencher_linha_tabela(cadastro))
             for cadastro in con.banco_de_dados
-            if query in cadastro['nome'] or query in cadastro['telefone']
+            if validar_filtro(query, cadastro)
+            #if query in cadastro['nome'] or query in cadastro['telefone']
         ]
 
 def pesquisar(e):
